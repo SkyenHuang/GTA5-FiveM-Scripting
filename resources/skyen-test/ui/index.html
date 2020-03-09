@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        #main-content {
+            width: 20rem;
+            height: 10rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        #indicator-lights-pad span {
+            font-size: 4rem;
+            color: greenyellow;
+            text-shadow: khaki;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-content">
+        <div id="indicator-lights-pad">
+            <span>&blacktriangleleft;</span>
+            <span>&blacktriangleright;</span>
+        </div>
+        <div id="vehicle-control-pad">
+            <span>vehicle </span>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('message', (event) => {
+            switch (event.data.type) {
+                case 'open':
+                    document.getElementById('main-content').hidden = false;
+                    break;
+                case 'close':
+                    document.getElementById('main-content').hidden = true;
+                    break;
+                default:
+            }
+        });
+    </script>
+</body>
+
+</html>
